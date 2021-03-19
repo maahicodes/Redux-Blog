@@ -19,7 +19,7 @@
   }
   
   .login_message > h1 {
-    font-size: 80px;
+    font-size: 75px;
     width: 80%;
     line-height: 1em;
     margin: 10px auto;
@@ -49,4 +49,10 @@
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 600px) {
+    .login_message > h1 {
+      font-size: 55px;
+    }
   }
