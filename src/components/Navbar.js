@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Avatar } from '@material-ui/core';
+import { Avatar } from "@material-ui/core";
 import { GoogleLogout } from "react-google-login";
 import {
   selectSignedIn,
@@ -9,13 +9,12 @@ import {
   setSignedIn,
   setUserData,
 } from "../features/userSlice";
-import '../styles/navbar.css';
-
+import "../styles/navbar.css";
 
 const Navbar = () => {
   const [inputValue, setInputvalue] = useState("tech");
   const isSignedIn = useSelector(selectSignedIn);
-  const userData = useSelector(selectUserData)
+  const userData = useSelector(selectUserData);
 
   const dispatch = useDispatch();
 
@@ -27,12 +26,11 @@ const Navbar = () => {
   const handleClick = (e) => {
     e.preventDefault();
     dispatch(setInput(inputValue));
-  }
-
+  };
 
   return (
     <div className="navbar">
-      <h1 className="navbar_header">bibliophile</h1>
+      <h1 className="navbar_header">Bibliophile</h1>
       {isSignedIn && (
         <div className="blog_search">
           <input
@@ -45,12 +43,19 @@ const Navbar = () => {
             Search
           </button>
         </div>
-        )}
-       
-       {isSignedIn ? (<div className="navbar_user_data">
-          <Avatar className="user" src={userData?.imageUrl} alt={userData?.name} />
+      )}
+
+      {isSignedIn ? (
+        <div className="navbar_user_data">
+          <Avatar
+            className="user"
+            src={userData?.imageUrl}
+            alt={userData?.name}
+          />
           <h1 className="signedIn">{userData?.givenName}</h1>
-          <GoogleLogout clientId="239136847410-7i79122dvhkd6o8asboq70v7tsiir69r.apps.googleusercontent.com" render={(renderProps) => (
+          <GoogleLogout
+            clientId="239136847410-7i79122dvhkd6o8asboq70v7tsiir69r.apps.googleusercontent.com"
+            render={(renderProps) => (
               <button
                 onClick={renderProps.onClick}
                 disabled={renderProps.disabled}
@@ -58,14 +63,13 @@ const Navbar = () => {
               >
                 Logout 😦
               </button>
-            )} 
-            
+            )}
             onLogoutSuccess={logout}
           />
         </div>
-      ) : 
-        <h1 className="notSignedIn">User not available 😞</h1>
-      }
+      ) : (
+        <h1 className="notSignedIn">Please Login First 😊</h1>
+      )}
     </div>
   );
 };
