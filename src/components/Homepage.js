@@ -24,8 +24,8 @@ const Homepage = () => {
       {!isSignedIn && (
         <div className="login_message">
           <h2>📖</h2>
-          <h1>The readers favourite place!</h1>
-          <p>Help your seed of knowledge to grow.</p>
+          <h1>The Readers Favourite Place!</h1>
+          <p>Help your seed of knowledge to grow.🌱</p>
           <GoogleLogin
             clientId="239136847410-7i79122dvhkd6o8asboq70v7tsiir69r.apps.googleusercontent.com"
             render={(renderProps) => (
